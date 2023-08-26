@@ -10,7 +10,6 @@ make -j
 ./index_and_search
 
 ```
-![Example Output](./screenshot.png)
 
 ### TODO
 - test other indices
