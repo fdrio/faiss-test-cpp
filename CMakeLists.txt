@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.10)
+project(faiss-test-cpp)
+
+set(CMAKE_CXX_STANDARD 11)
+set(BIN_NAME index_and_search)
+set(SRC_DIR ${CMAKE_SOURCE_DIR}/src )
+set(LIB_DIR ${CMAKE_SOURCE_DIR}/lib)
+set(TESTS_DIR ${CMAKE_SOURCE_DIR}/tests)
+set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
+
+file(GLOB SOURCE_FILES ${SRC_DIR}/*.cpp)
+
+add_executable(${BIN_NAME} ${SOURCE_FILES})
+target_include_directories(${BIN_NAME} PRIVATE ${INCLUDE_DIR})
+add_subdirectory(${LIB_DIR}/json)
+add_subdirectory(${LIB_DIR}/faiss)
+#find_package(nlohmann_json 3.11.2 REQUIRED)
+target_link_libraries(${BIN_NAME} PRIVATE nlohmann_json::nlohmann_json faiss)
+
+#target_link_libraries(${BIN_NAME} PRIVATE faiss)
+target_compile_options(${BIN_NAME} PRIVATE -Wall -Wextra)
