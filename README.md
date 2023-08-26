@@ -12,6 +12,7 @@ make -j
 ```
 
 ### TODO
+- index [sift dataset](http://corpus-texmex.irisa.fr/) 
 - test other indices
 - add gpu 
 - add rpc (use either grpc or capnproto)
