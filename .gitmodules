@@ -1,0 +1,6 @@
+[submodule "faiss-index/lib/json"]
+	path = faiss-index/lib/json
+	url = https://github.com/nlohmann/json.git
+[submodule "faiss-index/lib/faiss"]
+	path = faiss-index/lib/faiss
+	url = https://github.com/facebookresearch/faiss.git
