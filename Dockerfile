@@ -21,7 +21,6 @@ RUN cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
     -B faiss-index/build \ 
     ./faiss-index
 RUN cd faiss-index/build && make -j
-#CMD ["/projects/faiss-index/build/index_and_search"]
 
 FROM debian:stable-slim
 RUN apt update && apt upgrade 

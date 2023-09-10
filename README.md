@@ -1,18 +1,33 @@
 ## Instructions
-```
-git clone https://github.com/fdrio/faiss-test-cpp.git
-cd faiss-test-cpp
-git submodule --init --recursive
-mkdir build
-cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DFAISS_ENABLE_GPU=OFF -B build .
-cd build 
-make -j
-./index_and_search
 
-```
+#### MacOS
+##### Dependencies: 
+- openmp (use brew install libomp)
+- swig (use brew install swig)
+##### Build
+```./build_mac_bin.sh```
+
+##### Run 
+```./faiss-index/build/index_and_search```
+
+
+
+#### Linux
+##### Dependencies: 
+- docker
+
+##### Build
+```sudo docker build -t faiss:latest .``` 
+
+##### Run 
+```sudo docker run --rm faiss:latest``` 
+
+
 
 ### TODO
-- index [sift dataset](http://corpus-texmex.irisa.fr/) 
-- test other indices
-- add gpu 
-- add rpc (use either grpc or capnproto)
+- [X] add dockerfile
+- keep index alive in separate thread
+-  index [sift dataset](http://corpus-texmex.irisa.fr/) 
+-  test other indices
+-  add gpu 
+-  add rpc (use either grpc or capnproto)
