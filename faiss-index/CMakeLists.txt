@@ -7,9 +7,8 @@ set(SRC_DIR ${CMAKE_SOURCE_DIR}/src )
 set(LIB_DIR ${CMAKE_SOURCE_DIR}/lib)
 set(TESTS_DIR ${CMAKE_SOURCE_DIR}/tests)
 set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
-
 file(GLOB SOURCE_FILES ${SRC_DIR}/*.cpp)
-
+find_package (Python COMPONENTS Interpreter Development)
 add_executable(${BIN_NAME} ${SOURCE_FILES})
 target_include_directories(${BIN_NAME} PRIVATE ${INCLUDE_DIR})
 add_subdirectory(${LIB_DIR}/json)

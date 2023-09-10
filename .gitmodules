@@ -1,6 +1,0 @@
-[submodule "lib/json"]
-	path = lib/json
-	url = https://github.com/nlohmann/json.git
-[submodule "lib/faiss"]
-	path = lib/faiss
-	url = https://github.com/facebookresearch/faiss.git
