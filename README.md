@@ -22,6 +22,9 @@
 ##### Run 
 ```sudo docker run --rm faiss:latest``` 
 
+#### Windows
+Install linux and GOTO to linux instructions 
+
 
 
 ### TODO
