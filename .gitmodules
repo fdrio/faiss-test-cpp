@@ -4,3 +4,9 @@
 [submodule "faiss-index/lib/faiss"]
 	path = faiss-index/lib/faiss
 	url = https://github.com/facebookresearch/faiss.git
+[submodule "faiss-index/lib/protobuf"]
+	path = faiss-index/lib/protobuf
+	url = https://github.com/protocolbuffers/protobuf.git
+[submodule "faiss-index/lib/gtest"]
+	path = faiss-index/lib/gtest
+	url = https://github.com/google/googletest.git

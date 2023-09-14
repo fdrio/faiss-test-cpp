@@ -1,15 +1,19 @@
 #include "faiss/MetricType.h"
 #include <cstdio>
 #include <faiss/IndexFlat.h>
-
+#include <proto/query_vector.pb.h> 
 #include <cstddef>
 #include <iostream>
 #include <random>
 #include <string>
+#include <iostream>
+#include <cstddef>
 int main() {
   size_t d = 64;       // dimension
   size_t nb = 100000;  // database size
   size_t nq = 10000;   // nb of queries
+  QueryVector q;
+  std::cout<<"Size of query vector message "<< sizeof(q)<<std::endl;
   float* xb = new float[d * nb];
   float* xq = new float[d * nq];
   for (size_t i = 0; i < nb; i++) {
@@ -22,9 +26,9 @@ int main() {
       xq[d * i + j] = drand48();
     xq[d * i] += i / 1000.;
   }
-
+    
   faiss::IndexFlatL2 index(d);
-  std::string is_trained = index.is_trained ? "true" : "false";
+    std::string is_trained = index.is_trained ? "true" : "false";
 
   // Indexing
   {
