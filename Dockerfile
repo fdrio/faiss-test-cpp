@@ -1,7 +1,7 @@
 FROM debian:latest as build
 
 RUN apt update && apt upgrade 
-RUN apt install build-essential clang cmake libblas-dev libomp-dev liblapack-dev swig python3-dev python3-pip python3-venv git -y
+RUN apt install build-essential clang protobuf-compiler cmake libblas-dev libomp-dev liblapack-dev swig python3-dev python3-pip python3-venv git -y
 RUN python3 -m venv /opt/env
 RUN . /opt/env/bin/activate
 RUN ./opt/env/bin/pip3 install numpy
@@ -13,6 +13,7 @@ RUN git init
 COPY ./faiss-index /projects/faiss-index
 RUN git submodule add https://github.com/nlohmann/json.git faiss-index/lib/json
 RUN git submodule add https://github.com/facebookresearch/faiss.git faiss-index/lib/faiss
+RUN git submodule add https://github.com/protocolbuffers/protobuf.git faiss-index/lib/protobuf
 RUN mkdir faiss-index/build
 # Python sucks
 RUN cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 \ 
