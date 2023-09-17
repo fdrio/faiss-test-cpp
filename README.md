@@ -34,3 +34,4 @@ Install linux and GOTO to linux instructions
 -  test other indices
 -  add gpu 
 -  add rpc (use either grpc or capnproto)
+-  add tests
