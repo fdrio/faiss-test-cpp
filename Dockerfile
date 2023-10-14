@@ -1,7 +1,7 @@
 FROM debian:latest as build
 
 RUN apt update && apt upgrade 
-RUN apt install build-essential clang protobuf-compiler cmake libblas-dev libomp-dev liblapack-dev swig python3-dev python3-pip python3-venv git -y
+RUN apt install build-essential clang protobuf-compiler protobuf-compiler-grpc cmake libblas-dev libgrpc-dev grpc-proto libgrpc++-dev libomp-dev liblapack-dev swig python3-dev python3-pip python3-venv git -y
 RUN python3 -m venv /opt/env
 RUN . /opt/env/bin/activate
 RUN ./opt/env/bin/pip3 install numpy
@@ -25,6 +25,6 @@ RUN cd faiss-index/build && make -j
 
 FROM debian:stable-slim
 RUN apt update && apt upgrade 
-RUN apt install build-essential libblas-dev libomp-dev liblapack-dev swig python3-dev python3-pip python3-venv -y
-COPY --from=build /projects/faiss-index/build/index_and_search /
-CMD ["/index_and_search"]
+RUN apt install build-essential protobuf-compiler libblas-dev libomp-dev liblapack-dev swig python3-dev python3-pip python3-venv -y
+COPY --from=build /projects/faiss-index/build/db_server /
+CMD ["/db_server"]

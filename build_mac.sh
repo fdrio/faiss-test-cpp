@@ -8,6 +8,8 @@ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
     -DOpenMP_omp_LIBRARY="/usr/local/opt/libomp/lib/libomp.dylib" \
     -DOpenMP_CXX_LIB_NAMES="omp" -DOpenMP_C_FLAGS=-fopenmp=libomp\
     -DOpenMP_CXX_FLAGS=-fopenmp=libomp\
+    -DgRPC_INSTALL=ON\
+    -DgRPC_BUILD_TESTS=OFF\
     -B ./faiss-index/build\
     ./faiss-index
 cd faiss-index/build && make -j && cd -
