@@ -36,9 +36,8 @@
 int main() {
     std::size_t dimension = 64;
     const std::string server_address{"0.0.0.0:50051"};
-    VectorDB vector_db(dimension, server_address, grpc::InsecureServerCredentials());
+    VectorDB vector_db{dimension, server_address};
     vector_db.start();
-    //init_server();      
 }
 
 

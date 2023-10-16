@@ -1,16 +1,16 @@
+#include "service.h"
 #include <grpcpp/grpcpp.h>
 #include <iostream>
 #include <string>
 
-#include "grpc_server.h"
 class VectorDB {
- public:
-  VectorDB(std::size_t dimension,
-           std::string address,
-           std::shared_ptr<grpc::ServerCredentials> credentials);
+public:
+  VectorDB(std::size_t dimension, std::string address,
+           std::shared_ptr<grpc::ServerCredentials> credentials =
+               grpc::InsecureServerCredentials());
   void start();
 
- private:
+private:
   std::string address;
   grpc::ServerBuilder builder;
   FaissService faiss_service;

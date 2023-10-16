@@ -1,27 +1,20 @@
 syntax = "proto3";
 
-// Define a message for the query vector
-message QueryVector {
-  // You can include any fields that represent the query vector here
-  //repeated double values = 1;
-  int32 q_id = 1;
-}
-
-// Define a message for the query request, which includes the query vector
-message QueryRequest {
-  // Include the query vector as a field in the request
+message Vector {
   int32 id = 1;
-  QueryVector query_vector = 2;
+  repeated double values = 2;
 }
 
 
-// TODO: the reponse depends on the operation
-// Define a message for the query response
-message QueryResponse {
-    int32 id = 1;
+message QueryVector {
+    Vector query = 1; 
+}
+
+message Response{
+    repeated Vector results = 1;
 }
 
 
 service RouteFaissIndex {
-    rpc GetID(QueryRequest) returns(QueryResponse){}
+    rpc Index(QueryVector) returns(Response){}
 }
