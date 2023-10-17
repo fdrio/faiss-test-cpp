@@ -1,20 +1,22 @@
 syntax = "proto3";
+import "google/protobuf/empty.proto";
 
 message Vector {
-  int32 id = 1;
-  repeated double values = 2;
+  repeated double values = 1;
 }
-
 
 message QueryVector {
     Vector query = 1; 
+}
+
+message DataSet{
+    repeated Vector data = 1;
 }
 
 message Response{
     repeated Vector results = 1;
 }
 
-
 service RouteFaissIndex {
-    rpc Index(QueryVector) returns(Response){}
+    rpc Index(DataSet) returns(google.protobuf.Empty){}
 }

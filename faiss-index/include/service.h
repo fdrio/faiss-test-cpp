@@ -13,5 +13,5 @@ private:
 
 public:
     FaissService(std::size_t dimension);
-    grpc::Status Index(grpc::ServerContext *context, const QueryVector *req,Response *resp); 
+    grpc::Status Index(grpc::ServerContext *context, const DataSet *req, ::google::protobuf::Empty *resp); 
 };
