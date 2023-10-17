@@ -29,7 +29,8 @@ Install linux and GOTO to linux instructions
 
 ### TODO
 - [X] add dockerfile
-- keep index alive in separate thread
+- [X] keep index alive in separate thread
+-  Creating client-side streaming rpc. Each message is a vector of the database  
 -  index [sift dataset](http://corpus-texmex.irisa.fr/) 
 -  test other indices
 -  add gpu 
