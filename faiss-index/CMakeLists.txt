@@ -17,7 +17,7 @@ file(GLOB PROTO_FILES ${PROTO_DIR}/*.proto)
 file(MAKE_DIRECTORY ${PROTOC_OUT_DIR})
 
 
-find_package (Python COMPONENTS Interpreter Development)
+find_package (Python COMPONENTS Interpreter Development NumPy)
 find_package(Protobuf REQUIRED)
 find_package(gRPC REQUIRED)
 

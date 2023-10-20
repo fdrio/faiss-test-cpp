@@ -5,18 +5,11 @@ message Vector {
   repeated double values = 1;
 }
 
-message QueryVector {
-    Vector query = 1; 
-}
-
-message DataSet{
-    repeated Vector data = 1;
-}
 
 message Response{
     repeated Vector results = 1;
 }
 
 service RouteFaissIndex {
-    rpc Index(DataSet) returns(google.protobuf.Empty){}
+    rpc Index(stream Vector) returns(google.protobuf.Empty){}
 }
