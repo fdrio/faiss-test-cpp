@@ -2,8 +2,14 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 
 message Vector {
-  repeated double values = 1;
+  repeated float values = 1;
 }
+
+message Indices {
+  repeated int32 values = 1;
+}
+
+
 
 
 message Response{
@@ -12,4 +18,5 @@ message Response{
 
 service RouteFaissIndex {
     rpc Index(stream Vector) returns(google.protobuf.Empty){}
+    rpc Query(Vector) returns(stream Indices){}
 }

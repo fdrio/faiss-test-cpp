@@ -64,7 +64,7 @@ int main() {
   FaissClient client = FaissClient{channel};
   srand(static_cast<unsigned>(time(nullptr)));
   std::vector<Vector> data;
-  for (std::size_t i = 0; i < DATABSE_SIZE; i++) {
+  for (std::size_t i = 0; i < DATABASE_SIZE; i++) {
     Vector vec;
     for (std::size_t j = 0; j < DIMENSION; j++)
       vec.mutable_values()->Add(static_cast<float>(rand()) /
